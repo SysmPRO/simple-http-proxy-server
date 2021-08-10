@@ -4,6 +4,7 @@ function loadPage(string $url): string {
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL,"https://habr.com{$url}");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     $response = curl_exec($curl);
